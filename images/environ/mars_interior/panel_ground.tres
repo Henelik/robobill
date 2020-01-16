@@ -1,4 +1,4 @@
-[gd_resource type="TileSet" load_steps=29 format=2]
+[gd_resource type="TileSet" load_steps=35 format=2]
 
 [ext_resource path="res://images/environ/mars_interior/x_panel_nor.png" type="Texture" id=1]
 [ext_resource path="res://images/environ/mars_interior/x_panel_col.png" type="Texture" id=2]
@@ -6,6 +6,8 @@
 [ext_resource path="res://images/environ/mars_interior/wall_col.png" type="Texture" id=4]
 [ext_resource path="res://images/environ/mars_interior/inside_wall_nor.png" type="Texture" id=5]
 [ext_resource path="res://images/environ/mars_interior/inside_wall_col.png" type="Texture" id=6]
+[ext_resource path="res://images/environ/mars_interior/studded_floor_nor.png" type="Texture" id=7]
+[ext_resource path="res://images/environ/mars_interior/studded_floor_col.png" type="Texture" id=8]
 
 [sub_resource type="OccluderPolygon2D" id=1]
 polygon = PoolVector2Array( 59.7704, 59.7704, 63.9566, 59.7704, 64, 64, 59.7704, 64.1892 )
@@ -13,14 +15,26 @@ polygon = PoolVector2Array( 59.7704, 59.7704, 63.9566, 59.7704, 64, 64, 59.7704,
 [sub_resource type="ConvexPolygonShape2D" id=2]
 points = PoolVector2Array( 40, 40, 64, 40, 64, 64, 40, 64 )
 
+[sub_resource type="OccluderPolygon2D" id=23]
+polygon = PoolVector2Array( 64, 0, 64, 4, 4, 4, 4, 64, 0, 64, 0, 0 )
+
 [sub_resource type="ConvexPolygonShape2D" id=3]
 points = PoolVector2Array( 0, 0, 64, 0, 64, 24, 24, 24, 24, 64, 0, 64 )
+
+[sub_resource type="OccluderPolygon2D" id=24]
+polygon = PoolVector2Array( 0, 4, 60, 4, 60, 64, 64, 64, 64, 0, 0, 0 )
 
 [sub_resource type="ConvexPolygonShape2D" id=4]
 points = PoolVector2Array( 64, 0, 64, 64, 40, 64, 40, 24, 0, 24, 0, 0 )
 
+[sub_resource type="OccluderPolygon2D" id=25]
+polygon = PoolVector2Array( 60, 0, 60, 60, 0, 60, 0, 64, 64, 64, 64, 0 )
+
 [sub_resource type="ConvexPolygonShape2D" id=5]
 points = PoolVector2Array( 40, 0, 64, 0, 64, 64, 0, 64, 0, 40, 40, 40 )
+
+[sub_resource type="OccluderPolygon2D" id=26]
+polygon = PoolVector2Array( 4, 0, 4, 60, 64, 60, 64, 64, 0, 64, 0, 0 )
 
 [sub_resource type="ConvexPolygonShape2D" id=6]
 points = PoolVector2Array( 0, 0, 24, 0, 24, 40, 64, 40, 64, 64, 0, 64 )
@@ -255,6 +269,7 @@ points = PoolVector2Array( 0, 0, 24, 0, 24, 24, 0, 24 )
 10/region = Rect2( 0, 0, 64, 64 )
 10/tile_mode = 0
 10/occluder_offset = Vector2( 0, 0 )
+10/occluder = SubResource( 23 )
 10/navigation_offset = Vector2( 0, 0 )
 10/shapes = [ {
 "autotile_coord": Vector2( 0, 0 ),
@@ -272,6 +287,7 @@ points = PoolVector2Array( 0, 0, 24, 0, 24, 24, 0, 24 )
 11/region = Rect2( 64, 0, 64, 64 )
 11/tile_mode = 0
 11/occluder_offset = Vector2( 0, 0 )
+11/occluder = SubResource( 24 )
 11/navigation_offset = Vector2( 0, 0 )
 11/shapes = [ {
 "autotile_coord": Vector2( 0, 0 ),
@@ -289,6 +305,7 @@ points = PoolVector2Array( 0, 0, 24, 0, 24, 24, 0, 24 )
 12/region = Rect2( 64, 64, 64, 64 )
 12/tile_mode = 0
 12/occluder_offset = Vector2( 0, 0 )
+12/occluder = SubResource( 25 )
 12/navigation_offset = Vector2( 0, 0 )
 12/shapes = [ {
 "autotile_coord": Vector2( 0, 0 ),
@@ -306,6 +323,7 @@ points = PoolVector2Array( 0, 0, 24, 0, 24, 24, 0, 24 )
 13/region = Rect2( 0, 64, 64, 64 )
 13/tile_mode = 0
 13/occluder_offset = Vector2( 0, 0 )
+13/occluder = SubResource( 26 )
 13/navigation_offset = Vector2( 0, 0 )
 13/shapes = [ {
 "autotile_coord": Vector2( 0, 0 ),
@@ -315,3 +333,102 @@ points = PoolVector2Array( 0, 0, 24, 0, 24, 24, 0, 24 )
 "shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
 } ]
 13/z_index = 0
+14/name = "studded_floor_col.png 14"
+14/texture = ExtResource( 8 )
+14/normal_map = ExtResource( 7 )
+14/tex_offset = Vector2( 0, 0 )
+14/modulate = Color( 1, 1, 1, 1 )
+14/region = Rect2( 0, 0, 64, 64 )
+14/tile_mode = 0
+14/occluder_offset = Vector2( 0, 0 )
+14/navigation_offset = Vector2( 0, 0 )
+14/shapes = [  ]
+14/z_index = 0
+15/name = "studded_floor_col.png 15"
+15/texture = ExtResource( 8 )
+15/normal_map = ExtResource( 7 )
+15/tex_offset = Vector2( 0, 0 )
+15/modulate = Color( 1, 1, 1, 1 )
+15/region = Rect2( 64, 0, 64, 64 )
+15/tile_mode = 0
+15/occluder_offset = Vector2( 0, 0 )
+15/navigation_offset = Vector2( 0, 0 )
+15/shapes = [  ]
+15/z_index = 0
+16/name = "studded_floor_col.png 16"
+16/texture = ExtResource( 8 )
+16/normal_map = ExtResource( 7 )
+16/tex_offset = Vector2( 0, 0 )
+16/modulate = Color( 1, 1, 1, 1 )
+16/region = Rect2( 128, 0, 64, 64 )
+16/tile_mode = 0
+16/occluder_offset = Vector2( 0, 0 )
+16/navigation_offset = Vector2( 0, 0 )
+16/shapes = [  ]
+16/z_index = 0
+17/name = "studded_floor_col.png 17"
+17/texture = ExtResource( 8 )
+17/normal_map = ExtResource( 7 )
+17/tex_offset = Vector2( 0, 0 )
+17/modulate = Color( 1, 1, 1, 1 )
+17/region = Rect2( 0, 64, 64, 64 )
+17/tile_mode = 0
+17/occluder_offset = Vector2( 0, 0 )
+17/navigation_offset = Vector2( 0, 0 )
+17/shapes = [  ]
+17/z_index = 0
+18/name = "studded_floor_col.png 18"
+18/texture = ExtResource( 8 )
+18/normal_map = ExtResource( 7 )
+18/tex_offset = Vector2( 0, 0 )
+18/modulate = Color( 1, 1, 1, 1 )
+18/region = Rect2( 64, 64, 64, 64 )
+18/tile_mode = 0
+18/occluder_offset = Vector2( 0, 0 )
+18/navigation_offset = Vector2( 0, 0 )
+18/shapes = [  ]
+18/z_index = 0
+19/name = "studded_floor_col.png 19"
+19/texture = ExtResource( 8 )
+19/normal_map = ExtResource( 7 )
+19/tex_offset = Vector2( 0, 0 )
+19/modulate = Color( 1, 1, 1, 1 )
+19/region = Rect2( 128, 64, 64, 64 )
+19/tile_mode = 0
+19/occluder_offset = Vector2( 0, 0 )
+19/navigation_offset = Vector2( 0, 0 )
+19/shapes = [  ]
+19/z_index = 0
+20/name = "studded_floor_col.png 20"
+20/texture = ExtResource( 8 )
+20/normal_map = ExtResource( 7 )
+20/tex_offset = Vector2( 0, 0 )
+20/modulate = Color( 1, 1, 1, 1 )
+20/region = Rect2( 0, 128, 64, 64 )
+20/tile_mode = 0
+20/occluder_offset = Vector2( 0, 0 )
+20/navigation_offset = Vector2( 0, 0 )
+20/shapes = [  ]
+20/z_index = 0
+21/name = "studded_floor_col.png 21"
+21/texture = ExtResource( 8 )
+21/normal_map = ExtResource( 7 )
+21/tex_offset = Vector2( 0, 0 )
+21/modulate = Color( 1, 1, 1, 1 )
+21/region = Rect2( 64, 128, 64, 64 )
+21/tile_mode = 0
+21/occluder_offset = Vector2( 0, 0 )
+21/navigation_offset = Vector2( 0, 0 )
+21/shapes = [  ]
+21/z_index = 0
+22/name = "studded_floor_col.png 22"
+22/texture = ExtResource( 8 )
+22/normal_map = ExtResource( 7 )
+22/tex_offset = Vector2( 0, 0 )
+22/modulate = Color( 1, 1, 1, 1 )
+22/region = Rect2( 128, 128, 64, 64 )
+22/tile_mode = 0
+22/occluder_offset = Vector2( 0, 0 )
+22/navigation_offset = Vector2( 0, 0 )
+22/shapes = [  ]
+22/z_index = 0
