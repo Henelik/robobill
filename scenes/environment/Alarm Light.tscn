@@ -23,12 +23,6 @@ lit_sprite = ExtResource( 4 )
 unlit_sprite = ExtResource( 5 )
 lightColor = Color( 1, 0.160784, 0.160784, 1 )
 
-[node name="dish_back" type="Sprite" parent="."]
-self_modulate = Color( 0, 0, 0, 1 )
-show_behind_parent = true
-texture = ExtResource( 1 )
-normal_map = ExtResource( 6 )
-
 [node name="light" type="Sprite" parent="."]
 editor/display_folded = true
 texture = ExtResource( 4 )
@@ -43,11 +37,5 @@ range_height = 70.0
 shadow_enabled = true
 
 [node name="cage" type="Sprite" parent="."]
-editor/display_folded = true
 texture = ExtResource( 8 )
 normal_map = ExtResource( 9 )
-
-[node name="cage2" type="Sprite" parent="cage"]
-self_modulate = Color( 0, 0, 0, 1 )
-show_behind_parent = true
-texture = ExtResource( 8 )

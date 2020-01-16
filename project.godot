@@ -16,7 +16,7 @@ _global_script_class_icons={
 [application]
 
 config/name="robobill"
-run/main_scene="res://shaders/light test.tscn"
+run/main_scene="res://scenes/light test.tscn"
 config/icon="res://icon.png"
 
 [input]

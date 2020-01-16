@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/smoke_sheet_nor.png-2cee2d594c6d380137cd907eabf1cdb1.stex"
+path="res://.import/smoke_sheet_nor.png-e301ff4d3dcc8ff5810fa616e3d34408.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://images/particles/smoke_sheet_nor.png"
-dest_files=[ "res://.import/smoke_sheet_nor.png-2cee2d594c6d380137cd907eabf1cdb1.stex" ]
+source_file="res://images/particles/smoke/smoke_sheet_nor.png"
+dest_files=[ "res://.import/smoke_sheet_nor.png-e301ff4d3dcc8ff5810fa616e3d34408.stex" ]
 
 [params]
 
