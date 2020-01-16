@@ -1,0 +1,109 @@
+[gd_scene load_steps=14 format=2]
+
+[ext_resource path="res://images/exp_radial.png" type="Texture" id=1]
+[ext_resource path="res://images/torus_col.png" type="Texture" id=2]
+[ext_resource path="res://images/torus_nor.png" type="Texture" id=3]
+[ext_resource path="res://images/environ/mars_interior/panel_ground.tres" type="TileSet" id=4]
+[ext_resource path="res://scripts/Player.gd" type="Script" id=5]
+[ext_resource path="res://images/player/bill_body_col.png" type="Texture" id=6]
+[ext_resource path="res://images/player/bill_body_nor.png" type="Texture" id=7]
+[ext_resource path="res://images/headlight.png" type="Texture" id=8]
+[ext_resource path="res://scenes/environment/Alarm Light.tscn" type="PackedScene" id=9]
+[ext_resource path="res://images/particles/smoke_sheet_a.png" type="Texture" id=10]
+[ext_resource path="res://images/particles/smoke_sheet_nor.png" type="Texture" id=11]
+
+[sub_resource type="CircleShape2D" id=1]
+radius = 20.3674
+
+[sub_resource type="CanvasItemMaterial" id=2]
+particles_animation = true
+particles_anim_h_frames = 4
+particles_anim_v_frames = 4
+particles_anim_loop = false
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Light2D2" type="Light2D" parent="."]
+visible = false
+position = Vector2( 796.217, 350.918 )
+scale = Vector2( 1.45641, 1.45641 )
+texture = ExtResource( 1 )
+range_height = 50.0
+
+[node name="Sprite" type="Sprite" parent="."]
+editor/display_folded = true
+modulate = Color( 0.223529, 0.301961, 0.603922, 1 )
+position = Vector2( 859.124, 398.619 )
+scale = Vector2( 0.1, 0.1 )
+texture = ExtResource( 2 )
+normal_map = ExtResource( 3 )
+
+[node name="Sprite2" type="Sprite" parent="Sprite"]
+modulate = Color( 0, 0, 0, 1 )
+show_behind_parent = true
+light_mask = 0
+texture = ExtResource( 2 )
+
+[node name="TileMap" type="TileMap" parent="."]
+modulate = Color( 0.905882, 0.905882, 0.905882, 1 )
+z_index = -10
+tile_set = ExtResource( 4 )
+format = 1
+tile_data = PoolIntArray( -1, 10, 0, -65536, 8, 0, -65535, 8, 0, -65534, 8, 0, -65533, 8, 0, -65532, 8, 0, -65531, 8, 0, -65530, 8, 0, -65529, 8, 0, -65528, 8, 0, -65527, 8, 0, -65526, 8, 0, -65525, 8, 0, -65524, 8, 0, -65523, 8, 0, -65522, 8, 0, -65521, 8, 0, -65520, 11, 0, 65535, 7, 0, 0, 0, 0, 1, 0, 0, 2, 0, 0, 3, 0, 0, 4, 0, 0, 5, 0, 0, 6, 0, 0, 7, 0, 0, 8, 0, 0, 9, 0, 0, 10, 0, 0, 11, 0, 0, 12, 0, 0, 13, 0, 0, 14, 0, 0, 15, 0, 0, 16, 4, 0, 131071, 7, 0, 65536, 0, 0, 65537, 0, 0, 65538, 0, 0, 65539, 0, 0, 65540, 0, 0, 65541, 0, 0, 65542, 0, 0, 65543, 0, 0, 65544, 0, 0, 65545, 0, 0, 65546, 0, 0, 65547, 0, 0, 65548, 0, 0, 65549, 0, 0, 65550, 0, 0, 65551, 0, 0, 65552, 4, 0, 196607, 7, 0, 131072, 0, 0, 131073, 0, 0, 131074, 0, 0, 131075, 0, 0, 131076, 0, 0, 131077, 0, 0, 131078, 0, 0, 131079, 0, 0, 131080, 0, 0, 131081, 0, 0, 131082, 0, 0, 131083, 0, 0, 131084, 0, 0, 131085, 0, 0, 131086, 0, 0, 131087, 0, 0, 131088, 4, 0, 262143, 7, 0, 196608, 0, 0, 196609, 0, 0, 196610, 0, 0, 196611, 0, 0, 196612, 0, 0, 196613, 0, 0, 196614, 0, 0, 196615, 0, 0, 196616, 0, 0, 196617, 1, 0, 196618, 2, 0, 196619, 3, 0, 196620, 0, 0, 196621, 0, 0, 196622, 0, 0, 196623, 0, 0, 196624, 4, 0, 327679, 7, 0, 262144, 0, 0, 262145, 0, 0, 262146, 0, 0, 262147, 0, 0, 262148, 0, 0, 262149, 0, 0, 262150, 0, 0, 262151, 0, 0, 262152, 0, 0, 262153, 4, 0, 262154, 6, 0, 262155, 7, 0, 262156, 0, 0, 262157, 0, 0, 262158, 0, 0, 262159, 0, 0, 262160, 4, 0, 393215, 7, 0, 327680, 0, 0, 327681, 0, 0, 327682, 0, 0, 327683, 0, 0, 327684, 0, 0, 327685, 0, 0, 327686, 0, 0, 327687, 0, 0, 327688, 0, 0, 327689, 5, 0, 327690, 8, 0, 327691, 9, 0, 327692, 0, 0, 327693, 0, 0, 327694, 0, 0, 327695, 0, 0, 327696, 4, 0, 458751, 7, 0, 393216, 0, 0, 393217, 0, 0, 393218, 0, 0, 393219, 0, 0, 393220, 0, 0, 393221, 0, 0, 393222, 0, 0, 393223, 0, 0, 393224, 0, 0, 393225, 0, 0, 393226, 0, 0, 393227, 0, 0, 393228, 0, 0, 393229, 0, 0, 393230, 0, 0, 393231, 0, 0, 393232, 4, 0, 524287, 7, 0, 458752, 0, 0, 458753, 0, 0, 458754, 0, 0, 458755, 0, 0, 458756, 0, 0, 458757, 0, 0, 458758, 0, 0, 458759, 0, 0, 458760, 0, 0, 458761, 0, 0, 458762, 0, 0, 458763, 0, 0, 458764, 0, 0, 458765, 0, 0, 458766, 0, 0, 458767, 0, 0, 458768, 4, 0, 589823, 7, 0, 524288, 0, 0, 524289, 0, 0, 524290, 0, 0, 524291, 0, 0, 524292, 0, 0, 524293, 0, 0, 524294, 0, 0, 524295, 0, 0, 524296, 0, 0, 524297, 0, 0, 524298, 0, 0, 524299, 0, 0, 524300, 0, 0, 524301, 0, 0, 524302, 0, 0, 524303, 0, 0, 524304, 4, 0, 655359, 7, 0, 589824, 0, 0, 589825, 0, 0, 589826, 0, 0, 589827, 0, 0, 589828, 0, 0, 589829, 0, 0, 589830, 0, 0, 589831, 0, 0, 589832, 0, 0, 589833, 0, 0, 589834, 0, 0, 589835, 0, 0, 589836, 0, 0, 589837, 0, 0, 589838, 0, 0, 589839, 0, 0, 589840, 4, 0, 720895, 13, 0, 655360, 2, 0, 655361, 2, 0, 655362, 2, 0, 655363, 2, 0, 655364, 2, 0, 655365, 2, 0, 655366, 2, 0, 655367, 2, 0, 655368, 2, 0, 655369, 2, 0, 655370, 2, 0, 655371, 2, 0, 655372, 2, 0, 655373, 2, 0, 655374, 2, 0, 655375, 2, 0, 655376, 12, 0 )
+
+[node name="Player" type="KinematicBody2D" parent="."]
+position = Vector2( 184.361, 209.785 )
+script = ExtResource( 5 )
+body_path = NodePath("Body")
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+current = true
+process_mode = 0
+smoothing_enabled = true
+drag_margin_left = 0.1
+drag_margin_top = 0.1
+drag_margin_right = 0.1
+drag_margin_bottom = 0.1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
+shape = SubResource( 1 )
+
+[node name="Body" type="Sprite" parent="Player"]
+editor/display_folded = true
+texture = ExtResource( 6 )
+normal_map = ExtResource( 7 )
+
+[node name="Sprite2" type="Sprite" parent="Player/Body"]
+self_modulate = Color( 0, 0, 0, 1 )
+show_behind_parent = true
+texture = ExtResource( 6 )
+
+[node name="Light2D" type="Light2D" parent="Player/Body"]
+texture = ExtResource( 8 )
+color = Color( 0.933333, 0.992157, 1, 1 )
+energy = 1.5
+mode = 3
+range_height = 50.0
+shadow_enabled = true
+shadow_filter = 3
+shadow_filter_smooth = 7.0
+
+[node name="Alarm Light" parent="." instance=ExtResource( 9 )]
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+material = SubResource( 2 )
+position = Vector2( 396.124, 216.087 )
+amount = 20
+lifetime = 2.0
+local_coords = false
+texture = ExtResource( 10 )
+normalmap = ExtResource( 11 )
+emission_shape = 2
+emission_rect_extents = Vector2( 100, 100 )
+gravity = Vector2( 0, 0 )
+initial_velocity = 10.0
+initial_velocity_random = 0.5
+damping = 5.0
+color = Color( 0.517647, 0.517647, 0.517647, 0.843137 )
+anim_speed = 1.0
+anim_speed_random = 0.1
