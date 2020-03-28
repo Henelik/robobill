@@ -1,0 +1,41 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://scripts/Player.gd" type="Script" id=1]
+[ext_resource path="res://images/player/bill_body_col.png" type="Texture" id=2]
+[ext_resource path="res://images/player/bill_body_nor.png" type="Texture" id=3]
+[ext_resource path="res://images/headlight.png" type="Texture" id=4]
+
+[sub_resource type="CircleShape2D" id=1]
+radius = 20.3674
+
+[node name="Player" type="KinematicBody2D"]
+editor/display_folded = true
+position = Vector2( 184.361, 209.785 )
+script = ExtResource( 1 )
+body_path = NodePath("Body")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+current = true
+process_mode = 0
+smoothing_enabled = true
+drag_margin_left = 0.0
+drag_margin_top = 0.0
+drag_margin_right = 0.0
+drag_margin_bottom = 0.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource( 1 )
+
+[node name="Body" type="Sprite" parent="."]
+editor/display_folded = true
+texture = ExtResource( 2 )
+normal_map = ExtResource( 3 )
+
+[node name="Light2D" type="Light2D" parent="Body"]
+texture = ExtResource( 4 )
+color = Color( 0.933333, 0.992157, 1, 1 )
+energy = 1.5
+range_height = 50.0
+shadow_enabled = true
+shadow_filter = 3
+shadow_filter_smooth = 7.0

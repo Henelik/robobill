@@ -2,13 +2,17 @@ extends KinematicBody2D
 
 export (int) var speed = 200
 export (NodePath) var body_path
+export (NodePath) var light_path
 var body
+var light
 
 var velocity = Vector2()
 var mouse_pos
 
 func _ready():
 	body = get_node(body_path)
+	light = get_node(light_path)
+	
 
 func get_input():
 	velocity = Vector2()
