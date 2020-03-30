@@ -9,7 +9,6 @@
 radius = 20.3674
 
 [node name="Player" type="KinematicBody2D"]
-editor/display_folded = true
 position = Vector2( 184.361, 209.785 )
 script = ExtResource( 1 )
 body_path = NodePath("Body")
@@ -34,7 +33,6 @@ normal_map = ExtResource( 3 )
 [node name="Light2D" type="Light2D" parent="Body"]
 texture = ExtResource( 4 )
 color = Color( 0.933333, 0.992157, 1, 1 )
-energy = 1.5
 range_height = 50.0
 shadow_enabled = true
 shadow_filter = 3

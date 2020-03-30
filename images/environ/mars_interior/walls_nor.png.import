@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/wall_nor.png-4786a0dcb50241c6d85da39d65f64afa.stex"
+path="res://.import/walls_nor.png-75c54a106e58b2f71b689595d32d6573.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://images/environ/mars_interior/wall_nor.png"
-dest_files=[ "res://.import/wall_nor.png-4786a0dcb50241c6d85da39d65f64afa.stex" ]
+source_file="res://images/environ/mars_interior/walls_nor.png"
+dest_files=[ "res://.import/walls_nor.png-75c54a106e58b2f71b689595d32d6573.stex" ]
 
 [params]
 
