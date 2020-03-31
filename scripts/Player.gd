@@ -6,6 +6,9 @@ export (NodePath) var light_path
 var body
 var light
 
+export (int) var light_cooldown = 10
+var _light_toggle_time = 0
+
 var velocity = Vector2()
 var mouse_pos
 
@@ -16,6 +19,7 @@ func _ready():
 
 func get_input():
 	velocity = Vector2()
+	_light_toggle_time -= 1
 	if Input.is_action_pressed('right'):
 		velocity.x += 1
 	if Input.is_action_pressed('left'):
@@ -24,7 +28,14 @@ func get_input():
 		velocity.y += 1
 	if Input.is_action_pressed('up'):
 		velocity.y -= 1
+	if Input.is_action_pressed('light'):
+		toggle_light()
 	velocity = velocity.normalized() * speed
+	
+func toggle_light():
+	if _light_toggle_time <= 0:
+		_light_toggle_time = light_cooldown
+		light.visible = !light.visible
 
 func _physics_process(delta):
 	# move the character

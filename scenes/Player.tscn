@@ -12,6 +12,7 @@ radius = 20.3674
 position = Vector2( 184.361, 209.785 )
 script = ExtResource( 1 )
 body_path = NodePath("Body")
+light_path = NodePath("Body/Light2D")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 current = true
@@ -26,7 +27,6 @@ drag_margin_bottom = 0.0
 shape = SubResource( 1 )
 
 [node name="Body" type="Sprite" parent="."]
-editor/display_folded = true
 texture = ExtResource( 2 )
 normal_map = ExtResource( 3 )
 
