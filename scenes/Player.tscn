@@ -1,133 +1,17 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://scripts/Player.gd" type="Script" id=1]
 [ext_resource path="res://images/player/bill_body_col.png" type="Texture" id=2]
 [ext_resource path="res://images/player/bill_body_nor.png" type="Texture" id=3]
 [ext_resource path="res://images/headlight.png" type="Texture" id=4]
-[ext_resource path="res://images/weapons/minigun/col.png" type="Texture" id=5]
-[ext_resource path="res://images/weapons/minigun/nor.png" type="Texture" id=6]
-[ext_resource path="res://images/player/bill_legs_col.png" type="Texture" id=7]
-[ext_resource path="res://images/player/bill_legs_nor.png" type="Texture" id=8]
+[ext_resource path="res://playerParts/weapons/Minigun.tscn" type="PackedScene" id=5]
+[ext_resource path="res://images/player/bill_legs_col.png" type="Texture" id=6]
+[ext_resource path="res://images/player/bill_legs_nor.png" type="Texture" id=7]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 20.3674
 
-[sub_resource type="Animation" id=4]
-resource_name = "Fire"
-length = 0.3
-loop = true
-tracks/0/type = "value"
-tracks/0/path = NodePath(".:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.3 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ 0, 7 ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath(".:offset")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0, 0.3 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ Vector2( -3, 0 ), Vector2( 0, 0 ) ]
-}
-
-[sub_resource type="Animation" id=5]
-resource_name = "Idle"
-length = 0.1
-tracks/0/type = "value"
-tracks/0/path = NodePath(".:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ 0 ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath(".:offset")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ Vector2( 0, 0 ) ]
-}
-
 [sub_resource type="Animation" id=6]
-resource_name = "Fire"
-length = 0.3
-loop = true
-tracks/0/type = "value"
-tracks/0/path = NodePath(".:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.3 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ 0, 7 ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath(".:offset")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0, 0.3 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ Vector2( -5, 0 ), Vector2( 0, 0 ) ]
-}
-
-[sub_resource type="Animation" id=7]
-resource_name = "Idle"
-length = 0.1
-tracks/0/type = "value"
-tracks/0/path = NodePath(".:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ 0 ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath(".:offset")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ Vector2( 0, 0 ) ]
-}
-
-[sub_resource type="Animation" id=2]
-resource_name = "Idle"
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:frame")
 tracks/0/interp = 1
@@ -141,7 +25,7 @@ tracks/0/keys = {
 "values": [ 1 ]
 }
 
-[sub_resource type="Animation" id=3]
+[sub_resource type="Animation" id=7]
 loop = true
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:frame")
@@ -175,8 +59,8 @@ body_path = NodePath("Body")
 light_path = NodePath("Body/Light2D")
 legs_path = NodePath("Legs")
 legs_player_path = NodePath("Legs/LegsPlayer")
-left_weapon_player_path = NodePath("Body/LeftWeapon/LeftWeaponPlayer")
-right_weapon_player_path = NodePath("Body/RightWeapon/RightWeaponPlayer")
+left_weapon_path = NodePath("Body/Minigun")
+right_weapon_path = NodePath("Body/Minigun2")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 current = true
@@ -204,39 +88,19 @@ shadow_enabled = true
 shadow_filter = 3
 shadow_filter_smooth = 7.0
 
-[node name="LeftWeapon" type="Sprite" parent="Body"]
-position = Vector2( 12, 0 )
-z_index = -1
-texture = ExtResource( 5 )
-normal_map = ExtResource( 6 )
-vframes = 2
-hframes = 4
+[node name="Minigun" parent="Body" instance=ExtResource( 5 )]
 
-[node name="LeftWeaponPlayer" type="AnimationPlayer" parent="Body/LeftWeapon"]
-anims/Fire = SubResource( 4 )
-anims/Idle = SubResource( 5 )
-
-[node name="RightWeapon" type="Sprite" parent="Body"]
-position = Vector2( 12, 0 )
+[node name="Minigun2" parent="Body" instance=ExtResource( 5 )]
 scale = Vector2( 1, -1 )
-z_index = -1
-texture = ExtResource( 5 )
-normal_map = ExtResource( 6 )
-vframes = 2
-hframes = 4
-
-[node name="RightWeaponPlayer" type="AnimationPlayer" parent="Body/RightWeapon"]
-anims/Fire = SubResource( 6 )
-anims/Idle = SubResource( 7 )
 
 [node name="Legs" type="Sprite" parent="."]
 z_index = 1
-texture = ExtResource( 7 )
-normal_map = ExtResource( 8 )
+texture = ExtResource( 6 )
+normal_map = ExtResource( 7 )
 vframes = 5
 hframes = 8
 frame = 5
 
 [node name="LegsPlayer" type="AnimationPlayer" parent="Legs"]
-anims/Idle = SubResource( 2 )
-anims/Walking = SubResource( 3 )
+anims/Idle = SubResource( 6 )
+anims/Walking = SubResource( 7 )
