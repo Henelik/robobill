@@ -18,6 +18,11 @@ var legs_rotation_speed = .5
 var legs
 var legs_player
 
+export (NodePath) var left_weapon_player_path
+export (NodePath) var right_weapon_player_path
+var left_weapon_player
+var right_weapon_player
+
 var walking
 
 func _ready():
@@ -25,6 +30,8 @@ func _ready():
 	light = get_node(light_path)
 	legs = get_node(legs_path)
 	legs_player = get_node(legs_player_path)
+	left_weapon_player = get_node(left_weapon_player_path)
+	right_weapon_player = get_node(right_weapon_player_path)
 
 func get_input():
 	velocity = Vector2()
@@ -44,6 +51,12 @@ func get_input():
 		walking = true
 	if Input.is_action_pressed('light'):
 		toggle_light()
+	if Input.is_action_pressed('primary_fire'):
+		left_weapon_player.play("Fire")
+		right_weapon_player.play("Fire")
+	else:
+		left_weapon_player.play("Idle")
+		right_weapon_player.play("Idle")
 	if velocity.x != 0 || velocity.y != 0:
 		legs_player.play("Walking")
 	else:
