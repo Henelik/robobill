@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://scripts/Player.gd" type="Script" id=1]
 [ext_resource path="res://images/player/bill_body_col.png" type="Texture" id=2]
@@ -11,7 +11,11 @@
 [sub_resource type="CircleShape2D" id=1]
 radius = 20.3674
 
-[sub_resource type="Animation" id=6]
+[sub_resource type="OccluderPolygon2D" id=4]
+cull_mode = 2
+polygon = PoolVector2Array( 17.1855, 5.9313, 17.1855, -5.98828, 6.62813, -14.5023, -11.7621, -13.14, -18.9139, -7.35052, -18.5733, 7.29355, -11.7621, 13.0831, 6.62813, 15.1264 )
+
+[sub_resource type="Animation" id=2]
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:frame")
 tracks/0/interp = 1
@@ -25,7 +29,7 @@ tracks/0/keys = {
 "values": [ 1 ]
 }
 
-[sub_resource type="Animation" id=7]
+[sub_resource type="Animation" id=3]
 loop = true
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:frame")
@@ -63,6 +67,7 @@ left_weapon_path = NodePath("Body/Minigun")
 right_weapon_path = NodePath("Body/Minigun2")
 
 [node name="Camera2D" type="Camera2D" parent="."]
+visible = false
 current = true
 process_mode = 0
 smoothing_enabled = true
@@ -72,28 +77,36 @@ drag_margin_right = 0.0
 drag_margin_bottom = 0.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 shape = SubResource( 1 )
 
 [node name="Body" type="Sprite" parent="."]
+light_mask = 3
 z_index = 10
 texture = ExtResource( 2 )
 normal_map = ExtResource( 3 )
 
 [node name="Light2D" type="Light2D" parent="Body"]
-visible = false
 texture = ExtResource( 4 )
 color = Color( 0.933333, 0.992157, 1, 1 )
 range_height = 50.0
+range_item_cull_mask = 2
 shadow_enabled = true
 shadow_filter = 3
 shadow_filter_smooth = 7.0
+shadow_item_cull_mask = 2
 
 [node name="Minigun" parent="Body" instance=ExtResource( 5 )]
 
 [node name="Minigun2" parent="Body" instance=ExtResource( 5 )]
 scale = Vector2( 1, -1 )
 
+[node name="LightOccluder2D" type="LightOccluder2D" parent="Body"]
+occluder = SubResource( 4 )
+
 [node name="Legs" type="Sprite" parent="."]
+visible = false
+light_mask = 3
 z_index = 1
 texture = ExtResource( 6 )
 normal_map = ExtResource( 7 )
@@ -102,5 +115,5 @@ hframes = 8
 frame = 5
 
 [node name="LegsPlayer" type="AnimationPlayer" parent="Legs"]
-anims/Idle = SubResource( 6 )
-anims/Walking = SubResource( 7 )
+anims/Idle = SubResource( 2 )
+anims/Walking = SubResource( 3 )

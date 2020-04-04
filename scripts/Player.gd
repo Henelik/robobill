@@ -34,6 +34,9 @@ func _ready():
 	right_weapon = get_node(right_weapon_path)
 
 func get_input():
+	# DEBUG
+	print(Performance.get_monitor(Performance.TIME_PROCESS))
+	
 	velocity = Vector2()
 	_light_toggle_time -= 1
 	walking = false
