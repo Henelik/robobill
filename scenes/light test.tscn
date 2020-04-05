@@ -96,7 +96,7 @@ anim_speed = 1.0
 anim_speed_random = 0.1
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
-color = Color( 0.47451, 0.47451, 0.47451, 1 )
+color = Color( 0.266667, 0.266667, 0.266667, 1 )
 
 [node name="Light2D" type="Light2D" parent="."]
 light_mask = 3

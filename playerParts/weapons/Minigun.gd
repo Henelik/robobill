@@ -2,12 +2,11 @@ extends Sprite
 
 var firing : bool = false
 
-export (float) var starting_fire_rate = 1
 export (float) var max_fire_rate = 10
 export (float) var fire_rate_acceleration = 5
 export (float) var spread_range = .01
 export (float) var casing_spread_range = .05
-var current_fire_rate : float = starting_fire_rate
+var current_fire_rate : float = 0
 var time_since_last_fire : float = 0
 
 export (NodePath) var animation_player_path
@@ -22,6 +21,15 @@ var heat_particles
 export (NodePath) var casing_source_path
 var casing_source
 
+export (NodePath) var spinup_audio_path
+var spinup_audio
+
+export (NodePath) var gunshot_audio_path
+var gunshot_audio
+
+export (NodePath) var latch_audio_path
+var latch_audio
+
 export (String) var bullet_path
 var bullet_prefab
 
@@ -35,11 +43,13 @@ func _ready():
 	casing_prefab = load(casing_path)
 	heat_particles = get_node(heat_particles_path)
 	casing_source = get_node(casing_source_path)
+	spinup_audio = get_node(spinup_audio_path)
+	gunshot_audio = get_node(gunshot_audio_path)
 
 func _process(delta):
 	if firing:
 		current_fire_rate += fire_rate_acceleration*delta
-		current_fire_rate = min(max(current_fire_rate, starting_fire_rate), max_fire_rate)
+		current_fire_rate = min(current_fire_rate, max_fire_rate)
 		animation_player.play("Fire")
 		time_since_last_fire += delta
 		if time_since_last_fire > 1/current_fire_rate:
@@ -49,13 +59,19 @@ func _process(delta):
 	else:
 		current_fire_rate -= fire_rate_acceleration*delta
 		current_fire_rate = min(max(current_fire_rate, 0), max_fire_rate)
-		# time_since_last_fire = 1/starting_fire_rate
 	animation_player.playback_speed = current_fire_rate
 	# emit weapon smoke
 	if current_fire_rate == max_fire_rate:
 		heat_particles.emitting = true
 	else:
 		heat_particles.emitting = false
+	# play spinup audio
+	if current_fire_rate > .1:
+		if spinup_audio.playing == false:
+			spinup_audio.playing = true
+		spinup_audio.pitch_scale = (current_fire_rate/max_fire_rate)*.2+.8
+	else:
+		spinup_audio.playing = false
 	
 func fire_bullet():
 	# spawn the bullet
@@ -68,6 +84,7 @@ func fire_bullet():
 	else:
 		bullet.rotation = bullet_source.global_transform.get_rotation()+spread
 	bullet.projectile_ready()
+
 	# spawn the casing
 	var casing = casing_prefab.instance()
 	get_tree().get_root().add_child(casing)
@@ -79,4 +96,7 @@ func fire_bullet():
 	else:
 		casing.rotation = casing_source.global_transform.get_rotation()+spread
 	casing.projectile_ready()
+	
+	# play audio
+	gunshot_audio.playing = true
 	

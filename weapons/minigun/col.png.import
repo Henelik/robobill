@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/col.png-51cf57f65d3db38faf44936625449329.stex"
+path="res://.import/col.png-5cf4ed1c215dd56ebd1ead27fbb1b4bc.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://images/weapons/minigun/col.png"
-dest_files=[ "res://.import/col.png-51cf57f65d3db38faf44936625449329.stex" ]
+source_file="res://weapons/minigun/col.png"
+dest_files=[ "res://.import/col.png-5cf4ed1c215dd56ebd1ead27fbb1b4bc.stex" ]
 
 [params]
 
