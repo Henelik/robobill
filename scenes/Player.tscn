@@ -4,7 +4,7 @@
 [ext_resource path="res://images/player/bill_body_col.png" type="Texture" id=2]
 [ext_resource path="res://images/player/bill_body_nor.png" type="Texture" id=3]
 [ext_resource path="res://images/headlight.png" type="Texture" id=4]
-[ext_resource path="res://playerParts/weapons/Minigun.tscn" type="PackedScene" id=5]
+[ext_resource path="res://weapons/minigun/Minigun.tscn" type="PackedScene" id=5]
 [ext_resource path="res://images/player/bill_legs_col.png" type="Texture" id=6]
 [ext_resource path="res://images/player/bill_legs_nor.png" type="Texture" id=7]
 

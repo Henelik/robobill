@@ -1,14 +1,15 @@
 [gd_scene load_steps=10 format=2]
 
-[ext_resource path="res://images/environ/mars_interior/props/alarm_light_dish_col.png" type="Texture" id=1]
-[ext_resource path="res://images/environ/mars_interior/props/alarm_light_dish_nor.png" type="Texture" id=2]
+[ext_resource path="res://images/environ/mars_interior/props/alarm/alarm_light_dish_col.png" type="Texture" id=1]
+[ext_resource path="res://images/environ/mars_interior/props/alarm/alarm_light_dish_nor.png" type="Texture" id=2]
 [ext_resource path="res://scripts/alarm_light.gd" type="Script" id=3]
-[ext_resource path="res://images/environ/mars_interior/props/alarm_light_lit_col.png" type="Texture" id=4]
-[ext_resource path="res://images/environ/mars_interior/props/alarm_light_col.png" type="Texture" id=5]
-[ext_resource path="res://images/environ/mars_interior/props/alarm_light_nor.png" type="Texture" id=6]
+[ext_resource path="res://images/environ/mars_interior/props/alarm/alarm_light_lit_col.png" type="Texture" id=4]
+[ext_resource path="res://images/environ/mars_interior/props/alarm/alarm_light_col.png" type="Texture" id=5]
+[ext_resource path="res://images/environ/mars_interior/props/alarm/alarm_light_nor.png" type="Texture" id=6]
 [ext_resource path="res://images/spotlight.png" type="Texture" id=7]
-[ext_resource path="res://images/environ/mars_interior/props/alarm_light_cage_col.png" type="Texture" id=8]
-[ext_resource path="res://images/environ/mars_interior/props/alarm_light_cage_nor.png" type="Texture" id=9]
+[ext_resource path="res://images/environ/mars_interior/props/alarm/alarm_light_cage_col.png" type="Texture" id=8]
+[ext_resource path="res://images/environ/mars_interior/props/alarm/alarm_light_cage_nor.png" type="Texture" id=9]
+
 
 [node name="Alarm Light" type="Sprite"]
 position = Vector2( 555.029, 321.248 )

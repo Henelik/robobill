@@ -7,7 +7,7 @@ export (float) var fire_rate_acceleration = 5
 export (float) var spread_range = .01
 export (float) var casing_spread_range = .05
 var current_fire_rate : float = 0
-var time_since_last_fire : float = 0
+var time_since_last_fire : float = randf()*2
 
 export (NodePath) var animation_player_path
 var animation_player
@@ -45,6 +45,7 @@ func _ready():
 	casing_source = get_node(casing_source_path)
 	spinup_audio = get_node(spinup_audio_path)
 	gunshot_audio = get_node(gunshot_audio_path)
+	latch_audio = get_node(latch_audio_path)
 
 func _process(delta):
 	if firing:
@@ -66,12 +67,14 @@ func _process(delta):
 	else:
 		heat_particles.emitting = false
 	# play spinup audio
-	if current_fire_rate > .1:
+	if current_fire_rate > 0:
 		if spinup_audio.playing == false:
 			spinup_audio.playing = true
 		spinup_audio.pitch_scale = (current_fire_rate/max_fire_rate)*.2+.8
 	else:
-		spinup_audio.playing = false
+		if spinup_audio.playing == true:
+			spinup_audio.playing = false
+			latch_audio.playing = true
 	
 func fire_bullet():
 	# spawn the bullet

@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://images/environ/mars_interior/props/crate/crate_nor.png" type="Texture" id=1]
+[ext_resource path="res://images/environ/mars_interior/props/crate/crate_col.png" type="Texture" id=2]
+
+[sub_resource type="OccluderPolygon2D" id=1]
+cull_mode = 1
+polygon = PoolVector2Array( 23.8668, -30.3528, 30.419, -24.9303, 30.6449, 24.7758, 24.5446, 30.4242, -24.4836, 30.4242, -30.3579, 24.098, -30.3579, -24.2524, -24.7095, -30.5787 )
+
+[node name="Crate" type="Sprite"]
+position = Vector2( 275, 1093 )
+texture = ExtResource( 2 )
+normal_map = ExtResource( 1 )
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="."]
+light_mask = 3
+occluder = SubResource( 1 )
+light_mask = 3
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+polygon = PoolVector2Array( 24.3568, -30.8322, 30.8253, -25.0629, 31.175, 24.7623, 24.7065, 30.8812, -24.5943, 30.7064, -30.888, 24.2379, -30.7132, -24.3635, -24.7691, -31.007 )

@@ -1,13 +1,14 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://weapons/minigun/col.png" type="Texture" id=1]
 [ext_resource path="res://weapons/minigun/nor.png" type="Texture" id=2]
-[ext_resource path="res://playerParts/weapons/Minigun.gd" type="Script" id=3]
+[ext_resource path="res://weapons/minigun/Minigun.gd" type="Script" id=3]
 [ext_resource path="res://particles/smoke/smoke_material.tres" type="Material" id=4]
 [ext_resource path="res://particles/smoke/smoke_sheet_a.png" type="Texture" id=5]
 [ext_resource path="res://particles/smoke/smoke_sheet_nor.png" type="Texture" id=6]
 [ext_resource path="res://weapons/minigun/minigun_spin.wav" type="AudioStream" id=7]
 [ext_resource path="res://weapons/minigun/minigun_fire.wav" type="AudioStream" id=8]
+[ext_resource path="res://weapons/minigun/minigun_latch.wav" type="AudioStream" id=9]
 
 [sub_resource type="Animation" id=1]
 resource_name = "Fire"
@@ -65,6 +66,25 @@ tracks/1/keys = {
 "values": [ Vector2( 0, 0 ) ]
 }
 
+[sub_resource type="ParticlesMaterial" id=3]
+emission_shape = 1
+emission_sphere_radius = 10.0
+flag_disable_z = true
+direction = Vector3( 0, -1, 0 )
+gravity = Vector3( 0, 0, 0 )
+initial_velocity = 40.0
+initial_velocity_random = 0.5
+angular_velocity = 10.0
+angular_velocity_random = 1.0
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+damping = 5.0
+damping_random = 0.1
+angle = 360.0
+angle_random = 1.0
+scale = 0.75
+anim_speed = 1.0
+
 [node name="Minigun" type="Sprite"]
 position = Vector2( 12, 0 )
 z_index = -1
@@ -73,13 +93,14 @@ normal_map = ExtResource( 2 )
 vframes = 4
 hframes = 4
 script = ExtResource( 3 )
-max_fire_rate = 20.0
+max_fire_rate = 15.0
 animation_player_path = NodePath("MinigunPlayer")
 bullet_source_path = NodePath("BulletSource")
-heat_particles_path = NodePath("HeatParticles")
+heat_particles_path = NodePath("HeatParticles2")
 casing_source_path = NodePath("CasingSource")
 spinup_audio_path = NodePath("SpinupPlayer")
 gunshot_audio_path = NodePath("GunshotPlayer")
+latch_audio_path = NodePath("LatchPlayer")
 bullet_path = "res://particles/bullet/bullet.tscn"
 casing_path = "res://particles/casing/Casing.tscn"
 
@@ -91,10 +112,12 @@ anims/Idle = SubResource( 2 )
 position = Vector2( 25.5273, -21.5661 )
 
 [node name="HeatParticles" type="CPUParticles2D" parent="."]
+visible = false
 modulate = Color( 0.501961, 0.501961, 0.501961, 0.152941 )
 material = ExtResource( 4 )
 position = Vector2( -14.2354, -25.5015 )
 rotation = -1.57079
+emitting = false
 amount = 10
 lifetime = 3.0
 local_coords = false
@@ -118,8 +141,24 @@ position = Vector2( -14.2997, -25.0244 )
 
 [node name="SpinupPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 7 )
-volume_db = -15.0
+volume_db = -20.0
 
 [node name="GunshotPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 8 )
-volume_db = -5.0
+volume_db = -10.0
+pitch_scale = 1.4
+
+[node name="LatchPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 9 )
+volume_db = -20.0
+
+[node name="HeatParticles2" type="Particles2D" parent="."]
+modulate = Color( 0.65098, 0.65098, 0.65098, 0.529412 )
+material = ExtResource( 4 )
+position = Vector2( -14.3036, -25.0649 )
+amount = 4
+lifetime = 3.0
+local_coords = false
+process_material = SubResource( 3 )
+texture = ExtResource( 5 )
+normal_map = ExtResource( 6 )

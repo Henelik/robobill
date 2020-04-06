@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/alarm_light_cage_nor.png-ce95b53d21172f412456bdef1ea0eb32.stex"
+path="res://.import/vent_col.png-fbe33471bc53fbc633485d7b4cc41cbe.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://images/environ/mars_interior/props/alarm_light_cage_nor.png"
-dest_files=[ "res://.import/alarm_light_cage_nor.png-ce95b53d21172f412456bdef1ea0eb32.stex" ]
+source_file="res://images/environ/mars_interior/props/vent/vent_col.png"
+dest_files=[ "res://.import/vent_col.png-fbe33471bc53fbc633485d7b4cc41cbe.stex" ]
 
 [params]
 
@@ -20,7 +20,7 @@ compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=false
+flags/filter=true
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2

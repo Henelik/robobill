@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/alarm_light_lit_col.png-51e4644bc43097d365819f301c1babc9.stex"
+path="res://.import/alarm_light_nor.png-fc45742283d332f04c71f8b76ddcf540.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://images/environ/mars_interior/props/alarm_light_lit_col.png"
-dest_files=[ "res://.import/alarm_light_lit_col.png-51e4644bc43097d365819f301c1babc9.stex" ]
+source_file="res://images/environ/mars_interior/props/alarm/alarm_light_nor.png"
+dest_files=[ "res://.import/alarm_light_nor.png-fc45742283d332f04c71f8b76ddcf540.stex" ]
 
 [params]
 

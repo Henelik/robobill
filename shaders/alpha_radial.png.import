@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/alarm_light_dish_nor.png-df931cf956f2e91fa03e9c57995972bb.stex"
+path="res://.import/alpha_radial.png-d9d74d1078d6919cbf0df14650b99f1f.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://images/environ/mars_interior/props/alarm_light_dish_nor.png"
-dest_files=[ "res://.import/alarm_light_dish_nor.png-df931cf956f2e91fa03e9c57995972bb.stex" ]
+source_file="res://shaders/alpha_radial.png"
+dest_files=[ "res://.import/alpha_radial.png-d9d74d1078d6919cbf0df14650b99f1f.stex" ]
 
 [params]
 
@@ -20,7 +20,7 @@ compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=false
+flags/filter=true
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2

@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/alarm_light_dish_col.png-79970ab6c33fa0c3cfc700bc877840e9.stex"
+path="res://.import/crate_col.png-c37eb6f2ae10c5fadf9ef14d76cb0533.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://images/environ/mars_interior/props/alarm_light_dish_col.png"
-dest_files=[ "res://.import/alarm_light_dish_col.png-79970ab6c33fa0c3cfc700bc877840e9.stex" ]
+source_file="res://images/environ/mars_interior/props/crate/crate_col.png"
+dest_files=[ "res://.import/crate_col.png-c37eb6f2ae10c5fadf9ef14d76cb0533.stex" ]
 
 [params]
 
@@ -20,7 +20,7 @@ compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=false
+flags/filter=true
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2
