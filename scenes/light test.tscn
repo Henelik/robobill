@@ -1,79 +1,15 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=9 format=2]
 
-[ext_resource path="res://images/torus_col.png" type="Texture" id=1]
-[ext_resource path="res://images/torus_nor.png" type="Texture" id=2]
+[ext_resource path="res://enemies/prowler/Prowler.tscn" type="PackedScene" id=1]
 [ext_resource path="res://images/environ/mars_interior/panel_ground.tres" type="TileSet" id=3]
 [ext_resource path="res://images/environ/mars_interior/mars_walls.tres" type="TileSet" id=4]
 [ext_resource path="res://scenes/Player.tscn" type="PackedScene" id=5]
 [ext_resource path="res://scenes/environment/Alarm Light.tscn" type="PackedScene" id=6]
-[ext_resource path="res://particles/smoke/smoke_sheet_a.png" type="Texture" id=7]
-[ext_resource path="res://particles/smoke/smoke_sheet_nor.png" type="Texture" id=8]
 [ext_resource path="res://images/environ/mars_interior/props/crate/Crate.tscn" type="PackedScene" id=9]
-[ext_resource path="res://shaders/blur.tres" type="Material" id=10]
-[ext_resource path="res://particles/alpha_radial.png" type="Texture" id=11]
 [ext_resource path="res://images/environ/mars_interior/props/vent/Vent.tscn" type="PackedScene" id=12]
 [ext_resource path="res://images/environ/mars_interior/props/light_bar/light_bar.tscn" type="PackedScene" id=13]
 
-[sub_resource type="CanvasItemMaterial" id=1]
-particles_animation = true
-particles_anim_h_frames = 8
-particles_anim_v_frames = 8
-particles_anim_loop = false
-
-[sub_resource type="CanvasItemMaterial" id=2]
-particles_animation = true
-particles_anim_h_frames = 8
-particles_anim_v_frames = 8
-particles_anim_loop = false
-
-[sub_resource type="Curve" id=3]
-_data = [ Vector2( 0, 0.55 ), 0.0, 0.0, 0, 0, Vector2( 0.241935, 1 ), 0.0, 0.0, 0, 0, Vector2( 0.75, 1 ), 0.0, 0.0, 0, 0, Vector2( 1, 0 ), -8.72509, 0.0, 0, 0 ]
-
-[sub_resource type="CurveTexture" id=4]
-curve = SubResource( 3 )
-
-[sub_resource type="ParticlesMaterial" id=5]
-emission_shape = 2
-emission_box_extents = Vector3( 10, 32, 1 )
-flag_disable_z = true
-gravity = Vector3( 0, 0, 0 )
-initial_velocity = 50.0
-initial_velocity_random = 0.5
-orbit_velocity = 0.0
-orbit_velocity_random = 0.0
-damping = 10.0
-scale = 3.0
-scale_curve = SubResource( 4 )
-
-[sub_resource type="CanvasItemMaterial" id=6]
-particles_animation = true
-particles_anim_h_frames = 8
-particles_anim_v_frames = 8
-particles_anim_loop = false
-
-[sub_resource type="ParticlesMaterial" id=7]
-lifetime_randomness = 0.23
-emission_shape = 2
-emission_box_extents = Vector3( 50, 50, 1 )
-flag_disable_z = true
-gravity = Vector3( 0, 0, 0 )
-initial_velocity = 40.0
-initial_velocity_random = 0.1
-angular_velocity = 50.0
-angular_velocity_random = 1.0
-orbit_velocity = 0.0
-orbit_velocity_random = 0.0
-damping = 10.0
-anim_speed = 1.0
-
 [node name="Node2D" type="Node2D"]
-
-[node name="torus" type="Sprite" parent="."]
-modulate = Color( 0.223529, 0.301961, 0.603922, 1 )
-position = Vector2( 445.286, 408.643 )
-scale = Vector2( 0.1, 0.1 )
-texture = ExtResource( 1 )
-normal_map = ExtResource( 2 )
 
 [node name="Floors" type="TileMap" parent="."]
 modulate = Color( 1, 0.956863, 0.913725, 1 )
@@ -95,135 +31,100 @@ tile_data = PoolIntArray( -6, 0, 3, -5, 0, 131073, -4, 0, 131073, -3, 0, 131073,
 [node name="Player" parent="." instance=ExtResource( 5 )]
 position = Vector2( 137.824, 227.513 )
 
-[node name="Alarm Light" parent="." instance=ExtResource( 6 )]
-light_mask = 3
-position = Vector2( 244.647, 500.091 )
-
-[node name="Alarm Light2" parent="." instance=ExtResource( 6 )]
-light_mask = 3
-position = Vector2( 12.1778, 501.414 )
-
-[node name="Alarm Light4" parent="." instance=ExtResource( 6 )]
-light_mask = 3
-position = Vector2( 244.647, 908.804 )
-
-[node name="Alarm Light3" parent="." instance=ExtResource( 6 )]
-light_mask = 3
-position = Vector2( 12.1778, 910.127 )
-
-[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
-visible = false
-modulate = Color( 0.501961, 0.501961, 0.501961, 0.694118 )
-material = SubResource( 1 )
-position = Vector2( 396.124, 216.087 )
-amount = 20
-lifetime = 4.0
-local_coords = false
-texture = ExtResource( 7 )
-normalmap = ExtResource( 8 )
-emission_shape = 2
-emission_rect_extents = Vector2( 100, 100 )
-gravity = Vector2( 0, 0 )
-initial_velocity = 10.0
-initial_velocity_random = 0.5
-damping = 1.0
-angle = 360.0
-angle_random = 1.0
-color = Color( 0.517647, 0.517647, 0.517647, 0.843137 )
-anim_speed = 1.0
-anim_speed_random = 0.1
-
-[node name="CPUParticles2D2" type="CPUParticles2D" parent="."]
-visible = false
-modulate = Color( 1, 1, 1, 0.54902 )
-material = SubResource( 2 )
-position = Vector2( 133.891, 1125 )
-amount = 20
-lifetime = 4.0
-local_coords = false
-texture = ExtResource( 7 )
-normalmap = ExtResource( 8 )
-emission_shape = 2
-emission_rect_extents = Vector2( 100, 100 )
-gravity = Vector2( 0, 0 )
-initial_velocity = 10.0
-initial_velocity_random = 0.5
-damping = 5.0
-angle = 360.0
-angle_random = 1.0
-color = Color( 0.517647, 0.517647, 0.517647, 0.843137 )
-anim_speed = 1.0
-anim_speed_random = 0.1
-
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 color = Color( 0.266667, 0.266667, 0.266667, 1 )
 
-[node name="Smoke Blur" type="Particles2D" parent="."]
-material = ExtResource( 10 )
-position = Vector2( 413.515, 177.879 )
-z_index = 100
-amount = 4
-lifetime = 5.0
-process_material = SubResource( 5 )
-texture = ExtResource( 11 )
+[node name="Crate" parent="." instance=ExtResource( 9 )]
+rotation = 0.465286
 
-[node name="Smoke" type="Particles2D" parent="Smoke Blur"]
-self_modulate = Color( 0.701961, 0.701961, 0.701961, 0.427451 )
-material = SubResource( 6 )
-lifetime = 5.0
-process_material = SubResource( 7 )
-texture = ExtResource( 7 )
-normal_map = ExtResource( 8 )
+[node name="greebs" type="Node2D" parent="."]
 
-[node name="Vent" parent="." instance=ExtResource( 12 )]
+[node name="Vent" parent="greebs" instance=ExtResource( 12 )]
 position = Vector2( 23.014, 705.817 )
 
-[node name="Vent4" parent="." instance=ExtResource( 12 )]
+[node name="Vent4" parent="greebs" instance=ExtResource( 12 )]
 position = Vector2( -361.122, 1154.05 )
 
-[node name="Vent2" parent="." instance=ExtResource( 12 )]
+[node name="Vent6" parent="greebs" instance=ExtResource( 12 )]
+position = Vector2( -361.122, 193.618 )
+
+[node name="Vent2" parent="greebs" instance=ExtResource( 12 )]
 position = Vector2( 234.926, 705.724 )
 rotation = 3.14159
 
-[node name="Vent3" parent="." instance=ExtResource( 12 )]
+[node name="Vent3" parent="greebs" instance=ExtResource( 12 )]
 position = Vector2( 616.646, 1153.8 )
 rotation = 3.14159
 
-[node name="light_bar" parent="." instance=ExtResource( 13 )]
+[node name="Vent5" parent="greebs" instance=ExtResource( 12 )]
+position = Vector2( 616.646, 193.368 )
+rotation = 3.14159
+
+[node name="light_bar" parent="greebs" instance=ExtResource( 13 )]
 position = Vector2( 20.1778, 640.304 )
 
-[node name="light_bar2" parent="." instance=ExtResource( 13 )]
+[node name="light_bar2" parent="greebs" instance=ExtResource( 13 )]
 position = Vector2( 20.1778, 768.799 )
 
-[node name="light_bar8" parent="." instance=ExtResource( 13 )]
+[node name="light_bar8" parent="greebs" instance=ExtResource( 13 )]
 position = Vector2( -364.029, 1023.76 )
 
-[node name="light_bar7" parent="." instance=ExtResource( 13 )]
+[node name="light_bar7" parent="greebs" instance=ExtResource( 13 )]
 position = Vector2( -364.029, 1281.48 )
 
-[node name="light_bar3" parent="." instance=ExtResource( 13 )]
+[node name="light_bar14" parent="greebs" instance=ExtResource( 13 )]
+position = Vector2( -364.029, 63.3283 )
+
+[node name="light_bar13" parent="greebs" instance=ExtResource( 13 )]
+position = Vector2( -364.029, 321.048 )
+
+[node name="light_bar3" parent="greebs" instance=ExtResource( 13 )]
 position = Vector2( 234.08, 641.355 )
 rotation = 3.14159
 
-[node name="light_bar4" parent="." instance=ExtResource( 13 )]
+[node name="light_bar4" parent="greebs" instance=ExtResource( 13 )]
 position = Vector2( 234.08, 770.204 )
 rotation = 3.14159
 
-[node name="light_bar6" parent="." instance=ExtResource( 13 )]
+[node name="light_bar6" parent="greebs" instance=ExtResource( 13 )]
 position = Vector2( 619.644, 1025.24 )
 rotation = 3.14159
 
-[node name="light_bar5" parent="." instance=ExtResource( 13 )]
+[node name="light_bar5" parent="greebs" instance=ExtResource( 13 )]
 position = Vector2( 619.756, 1281.37 )
 rotation = 3.14159
 
-[node name="light_bar10" parent="." instance=ExtResource( 13 )]
+[node name="light_bar12" parent="greebs" instance=ExtResource( 13 )]
+position = Vector2( 619.644, 64.8083 )
+rotation = 3.14159
+
+[node name="light_bar11" parent="greebs" instance=ExtResource( 13 )]
+position = Vector2( 619.756, 320.938 )
+rotation = 3.14159
+
+[node name="light_bar10" parent="greebs" instance=ExtResource( 13 )]
 position = Vector2( 255.573, 1387.7 )
-rotation = 4.71238
+rotation = -1.57081
 
-[node name="light_bar9" parent="." instance=ExtResource( 13 )]
+[node name="light_bar9" parent="greebs" instance=ExtResource( 13 )]
 position = Vector2( -0.311188, 1388.54 )
-rotation = 4.71238
+rotation = -1.57081
 
-[node name="Crate" parent="." instance=ExtResource( 9 )]
-rotation = 0.465286
+[node name="Alarm Light" parent="greebs" instance=ExtResource( 6 )]
+light_mask = 3
+position = Vector2( 244.647, 500.091 )
+
+[node name="Alarm Light2" parent="greebs" instance=ExtResource( 6 )]
+light_mask = 3
+position = Vector2( 12.1778, 501.414 )
+
+[node name="Alarm Light4" parent="greebs" instance=ExtResource( 6 )]
+light_mask = 3
+position = Vector2( 244.647, 908.804 )
+
+[node name="Alarm Light3" parent="greebs" instance=ExtResource( 6 )]
+light_mask = 3
+position = Vector2( 12.1778, 910.127 )
+
+[node name="Prowler" parent="." instance=ExtResource( 1 )]
+position = Vector2( 117.824, 1082.5 )

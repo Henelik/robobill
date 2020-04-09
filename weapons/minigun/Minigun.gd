@@ -2,12 +2,13 @@ extends Sprite
 
 var firing : bool = false
 
+export (int) var damage = 3
 export (float) var max_fire_rate = 10
 export (float) var fire_rate_acceleration = 5
 export (float) var spread_range = .01
 export (float) var casing_spread_range = .05
 var current_fire_rate : float = 0
-var time_since_last_fire : float = randf()*2
+var time_since_last_fire : float = 0
 
 export (NodePath) var animation_player_path
 var animation_player

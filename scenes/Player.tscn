@@ -56,7 +56,9 @@ tracks/1/keys = {
 "values": [ Vector2( 1, 1 ), Vector2( 1.05, 1.05 ), Vector2( 1, 1 ), Vector2( 1.05, 1.05 ), Vector2( 1, 1 ) ]
 }
 
-[node name="Player" type="KinematicBody2D"]
+[node name="Player" type="KinematicBody2D" groups=[
+"Player",
+]]
 position = Vector2( 184.361, 209.785 )
 script = ExtResource( 1 )
 body_path = NodePath("Body")
@@ -104,7 +106,6 @@ scale = Vector2( 1, -1 )
 occluder = SubResource( 2 )
 
 [node name="Legs" type="Sprite" parent="."]
-visible = false
 light_mask = 3
 z_index = 1
 texture = ExtResource( 6 )

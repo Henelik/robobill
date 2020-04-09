@@ -2,7 +2,6 @@ extends Sprite
 
 export (int) var rot_speed = 10
 export (bool) var active = false
-export (NodePath) var light_path
 export (Resource) var lit_sprite
 export (Resource) var unlit_sprite
 export (Color) var lightColor
@@ -11,7 +10,7 @@ var light
 var lit = false
 
 func _ready():
-	light = get_node(light_path)
+	light = get_node("light")
 	light.set_modulate(lightColor)
 	light.get_child(0).set_color(lightColor)
 	_unlight()

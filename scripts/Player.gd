@@ -35,7 +35,7 @@ func _ready():
 
 func get_input():
 	# DEBUG
-	print(Performance.get_monitor(Performance.TIME_PROCESS))
+	# print(Performance.get_monitor(Performance.TIME_PROCESS))
 	
 	velocity = Vector2()
 	_light_toggle_time -= 1
