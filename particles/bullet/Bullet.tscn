@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://particles/bullet/Bullet.gd" type="Script" id=1]
 [ext_resource path="res://particles/bullet/bullet.png" type="Texture" id=2]
+[ext_resource path="res://images/linear_radial.png" type="Texture" id=3]
 
 [sub_resource type="CanvasItemMaterial" id=1]
 light_mode = 1
@@ -27,9 +28,17 @@ rotation = -1.57079
 shape = SubResource( 2 )
 
 [node name="Light2D" type="Light2D" parent="."]
+visible = false
 position = Vector2( -12.2602, 0 )
 texture = ExtResource( 2 )
 texture_scale = 5.0
+color = Color( 1, 0.74902, 0.564706, 1 )
+energy = 0.5
+range_height = 10.0
+
+[node name="Light2D2" type="Light2D" parent="."]
+position = Vector2( 4.05227, 0 )
+texture = ExtResource( 3 )
 color = Color( 1, 0.74902, 0.564706, 1 )
 energy = 0.5
 range_height = 10.0
