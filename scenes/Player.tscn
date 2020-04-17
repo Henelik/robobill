@@ -61,12 +61,6 @@ tracks/1/keys = {
 ]]
 position = Vector2( 184.361, 209.785 )
 script = ExtResource( 1 )
-body_path = NodePath("Body")
-light_path = NodePath("Body/Light2D")
-legs_path = NodePath("Legs")
-legs_player_path = NodePath("Legs/LegsPlayer")
-left_weapon_path = NodePath("Body/Minigun")
-right_weapon_path = NodePath("Body/Minigun2")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 visible = false
@@ -88,7 +82,7 @@ z_index = 10
 texture = ExtResource( 2 )
 normal_map = ExtResource( 3 )
 
-[node name="Light2D" type="Light2D" parent="Body"]
+[node name="Headlight" type="Light2D" parent="Body"]
 texture = ExtResource( 4 )
 color = Color( 0.933333, 0.992157, 1, 1 )
 range_height = 50.0

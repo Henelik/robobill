@@ -93,14 +93,7 @@ normal_map = ExtResource( 2 )
 vframes = 4
 hframes = 4
 script = ExtResource( 3 )
-max_fire_rate = 15.0
-animation_player_path = NodePath("MinigunPlayer")
-bullet_source_path = NodePath("BulletSource")
-heat_particles_path = NodePath("HeatParticles2")
-casing_source_path = NodePath("CasingSource")
-spinup_audio_path = NodePath("SpinupPlayer")
-gunshot_audio_path = NodePath("GunshotPlayer")
-latch_audio_path = NodePath("LatchPlayer")
+max_fire_rate = 12.0
 bullet_path = "res://particles/bullet/bullet.tscn"
 casing_path = "res://particles/casing/Casing.tscn"
 
@@ -110,31 +103,6 @@ anims/Idle = SubResource( 2 )
 
 [node name="BulletSource" type="Node2D" parent="."]
 position = Vector2( 25.5273, -21.5661 )
-
-[node name="HeatParticles" type="CPUParticles2D" parent="."]
-visible = false
-modulate = Color( 0.501961, 0.501961, 0.501961, 0.152941 )
-material = ExtResource( 4 )
-position = Vector2( -14.2354, -25.5015 )
-rotation = -1.57079
-emitting = false
-amount = 10
-lifetime = 3.0
-local_coords = false
-texture = ExtResource( 5 )
-normalmap = ExtResource( 6 )
-emission_shape = 1
-emission_sphere_radius = 10.0
-gravity = Vector2( 0, 0 )
-initial_velocity = 30.0
-initial_velocity_random = 0.5
-damping = 5.0
-damping_random = 0.1
-angle = 107.0
-angle_random = 1.0
-scale_amount = 0.75
-anim_speed = 1.0
-anim_speed_random = 0.1
 
 [node name="CasingSource" type="Node2D" parent="."]
 position = Vector2( -14.2997, -25.0244 )
@@ -152,7 +120,7 @@ pitch_scale = 1.4
 stream = ExtResource( 9 )
 volume_db = -20.0
 
-[node name="HeatParticles2" type="Particles2D" parent="."]
+[node name="HeatParticles" type="Particles2D" parent="."]
 modulate = Color( 0.65098, 0.65098, 0.65098, 0.529412 )
 material = ExtResource( 4 )
 position = Vector2( -14.3036, -25.0649 )

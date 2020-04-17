@@ -1,10 +1,8 @@
 extends KinematicBody2D
 
 export (int) var max_speed = 200
-export (NodePath) var body_path
-export (NodePath) var light_path
-var body
-var light
+onready var body : Sprite = $Body
+onready var light : Light2D = $Body/Headlight
 
 export (int) var light_cooldown = 10
 var _light_toggle_time = 0
@@ -12,26 +10,17 @@ var _light_toggle_time = 0
 var velocity = Vector2()
 var mouse_pos
 
-export (NodePath) var legs_path
-export (NodePath) var legs_player_path
 var legs_rotation_speed = .5
-var legs
-var legs_player
+onready var legs : Sprite = $Legs
+onready var legs_player : AnimationPlayer = $Legs/LegsPlayer
 
-export (NodePath) var left_weapon_path
-export (NodePath) var right_weapon_path
-var left_weapon
-var right_weapon
+onready var left_weapon : Sprite = $Body/Minigun
+onready var right_weapon : Sprite = $Body/Minigun2
 
-var walking
+var walking : bool = false
 
 func _ready():
-	body = get_node(body_path)
-	light = get_node(light_path)
-	legs = get_node(legs_path)
-	legs_player = get_node(legs_player_path)
-	left_weapon = get_node(left_weapon_path)
-	right_weapon = get_node(right_weapon_path)
+	pass
 
 func get_input():
 	# DEBUG
@@ -77,3 +66,6 @@ func _physics_process(delta):
 	# rotate the body towards the mouse
 	mouse_pos = get_local_mouse_position()
 	body.rotation = mouse_pos.angle()
+
+func damage(amount, type):
+	pass

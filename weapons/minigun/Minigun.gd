@@ -6,30 +6,17 @@ export (int) var damage = 3
 export (float) var max_fire_rate = 10
 export (float) var fire_rate_acceleration = 5
 export (float) var spread_range = .01
-export (float) var casing_spread_range = .05
+export (float) var casing_spread_range = .5
 var current_fire_rate : float = 0
 var time_since_last_fire : float = 0
 
-export (NodePath) var animation_player_path
-var animation_player
-
-export (NodePath) var bullet_source_path
-var bullet_source
-
-export (NodePath) var heat_particles_path
-var heat_particles
-
-export (NodePath) var casing_source_path
-var casing_source
-
-export (NodePath) var spinup_audio_path
-var spinup_audio
-
-export (NodePath) var gunshot_audio_path
-var gunshot_audio
-
-export (NodePath) var latch_audio_path
-var latch_audio
+onready var animation_player : AnimationPlayer = $MinigunPlayer
+onready var bullet_source : Node = $BulletSource
+onready var heat_particles : CPUParticles2D = $HeatParticles
+onready var casing_source : Node = $CasingSource
+onready var spinup_audio : AudioStreamPlayer = $SpinupPlayer
+onready var gunshot_audio : AudioStreamPlayer = $GunshotPlayer
+onready var latch_audio : AudioStreamPlayer = $LatchPlayer
 
 export (String) var bullet_path
 var bullet_prefab
@@ -38,15 +25,8 @@ export (String) var casing_path
 var casing_prefab
 
 func _ready():
-	animation_player = get_node(animation_player_path)
-	bullet_source = get_node(bullet_source_path)
 	bullet_prefab = load(bullet_path)
 	casing_prefab = load(casing_path)
-	heat_particles = get_node(heat_particles_path)
-	casing_source = get_node(casing_source_path)
-	spinup_audio = get_node(spinup_audio_path)
-	gunshot_audio = get_node(gunshot_audio_path)
-	latch_audio = get_node(latch_audio_path)
 
 func _process(delta):
 	if firing:
@@ -87,13 +67,14 @@ func fire_bullet():
 		bullet.rotation = 6.28 - bullet_source.global_transform.get_rotation()+spread
 	else:
 		bullet.rotation = bullet_source.global_transform.get_rotation()+spread
+	bullet.damage = damage
 	bullet.projectile_ready()
 
 	# spawn the casing
 	var casing = casing_prefab.instance()
 	get_tree().get_root().add_child(casing)
 	casing.position = casing_source.global_position
-	spread = (randf()*2-1)*casing_spread_range*current_fire_rate
+	spread = (randf()*2-1)*casing_spread_range
 	if scale.y == -1: # hack to invert the rotation of a flipped weapon
 		casing.rotation = 3.14 - casing_source.global_transform.get_rotation()+spread
 		casing.scale = Vector2(-1, -1)
