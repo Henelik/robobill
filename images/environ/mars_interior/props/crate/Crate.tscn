@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://images/environ/mars_interior/props/crate/crate_nor.png" type="Texture" id=1]
 [ext_resource path="res://images/environ/mars_interior/props/crate/crate_col.png" type="Texture" id=2]
@@ -7,7 +7,13 @@
 cull_mode = 1
 polygon = PoolVector2Array( 23.8668, -30.3528, 30.419, -24.9303, 30.6449, 24.7758, 24.5446, 30.4242, -24.4836, 30.4242, -30.3579, 24.098, -30.3579, -24.2524, -24.7095, -30.5787 )
 
+[sub_resource type="NavigationPolygon" id=2]
+vertices = PoolVector2Array( -24.979, -30.995, 23.9588, -31.199, 31.0956, -25.0817, 31.2995, 24.8757, 24.7745, 31.1968, -24.5712, 30.9929, -30.4845, 24.4679, -30.4845, -24.6738 )
+polygons = [ PoolIntArray( 0, 1, 2, 3, 4, 5, 6, 7 ) ]
+outlines = [ PoolVector2Array( -24.979, -30.995, 23.9588, -31.199, 31.0956, -25.0817, 31.2995, 24.8757, 24.7745, 31.1968, -24.5712, 30.9929, -30.4845, 24.4679, -30.4845, -24.6738 ) ]
+
 [node name="Crate" type="Sprite"]
+light_mask = 3
 position = Vector2( 275, 1093 )
 texture = ExtResource( 2 )
 normal_map = ExtResource( 1 )
@@ -21,3 +27,6 @@ light_mask = 3
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
 polygon = PoolVector2Array( 24.3568, -30.8322, 30.8253, -25.0629, 31.175, 24.7623, 24.7065, 30.8812, -24.5943, 30.7064, -30.888, 24.2379, -30.7132, -24.3635, -24.7691, -31.007 )
+
+[node name="NavigationPolygonInstance" type="NavigationPolygonInstance" parent="."]
+navpoly = SubResource( 2 )

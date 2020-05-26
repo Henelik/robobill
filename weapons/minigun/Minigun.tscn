@@ -93,7 +93,7 @@ normal_map = ExtResource( 2 )
 vframes = 4
 hframes = 4
 script = ExtResource( 3 )
-max_fire_rate = 12.0
+max_fire_rate = 15.0
 bullet_path = "res://particles/bullet/bullet.tscn"
 casing_path = "res://particles/casing/Casing.tscn"
 

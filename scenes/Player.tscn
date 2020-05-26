@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://scripts/Player.gd" type="Script" id=1]
 [ext_resource path="res://images/player/bill_body_col.png" type="Texture" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://weapons/minigun/Minigun.tscn" type="PackedScene" id=5]
 [ext_resource path="res://images/player/bill_legs_col.png" type="Texture" id=6]
 [ext_resource path="res://images/player/bill_legs_nor.png" type="Texture" id=7]
+[ext_resource path="res://images/spotlight.png" type="Texture" id=8]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 20.3674
@@ -98,6 +99,26 @@ scale = Vector2( 1, -1 )
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="Body"]
 occluder = SubResource( 2 )
+
+[node name="Light2D" type="Light2D" parent="Body"]
+visible = false
+position = Vector2( 16, 9 )
+rotation = 1.74533
+texture = ExtResource( 8 )
+texture_scale = 0.75
+color = Color( 1, 0, 0, 1 )
+energy = 0.3
+range_height = 40.0
+
+[node name="Light2D2" type="Light2D" parent="Body"]
+visible = false
+position = Vector2( 16, -9 )
+rotation = 1.39626
+texture = ExtResource( 8 )
+texture_scale = 0.75
+color = Color( 1, 0, 0, 1 )
+energy = 0.3
+range_height = 40.0
 
 [node name="Legs" type="Sprite" parent="."]
 light_mask = 3
