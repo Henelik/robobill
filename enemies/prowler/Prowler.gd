@@ -1,7 +1,7 @@
 extends KinematicBody2D
 
 export (int) var initial_hp = 10
-export (float) var walk_speed = 10
+export (float) var walk_speed = 200
 export (float) var alert_radius = 500
 
 var alerted : bool = false
@@ -13,12 +13,12 @@ var state : int = 0
 # 2 = attacking
 
 var path_to_player : = PoolVector2Array()
+export (float) var path_update_period = 1
+var path_age : float = path_update_period
 
 var player : KinematicBody2D
 
 onready var nav : Navigation2D = get_parent().get_node("Level/Navigation2D")
-
-onready var line : Line2D = get_parent().get_node("Line2D")
 
 func _ready():
 	player = get_tree().get_nodes_in_group("Player")[0]
@@ -27,10 +27,17 @@ func _process(delta):
 	if alerted:
 		# walk towards player
 		if state == 1:
-			path_to_player = nav.get_simple_path(position, player.position, false)
-			line.points = PoolVector2Array(path_to_player)
-			line.show()
-			# state = 2
+			path_age += delta
+			if path_age > path_update_period:
+				path_to_player = nav.get_simple_path(position, player.position, false)
+				path_age = 0
+			if path_to_player.size() > 0:
+				var d: float = position.distance_to(path_to_player[0])
+				if d > 10:
+					position = position.linear_interpolate(path_to_player[0], (walk_speed * delta)/d)
+					look_at(path_to_player[0])
+				else:
+					path_to_player.remove(0)
 		elif state == 2:
 			pass
 	else:
