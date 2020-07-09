@@ -22,7 +22,7 @@ func _physics_process(delta):
 	if collision:
 		var body = collision.collider
 		if body.is_in_group("Enemy") or body.is_in_group("Player"):
-			_on_hit(body)
+			_on_hit(body, collision)
 			return
 		var angle = abs(velocity.angle_to(collision.normal))
 		if angle > min_bounce_angle and angle < max_bounce_angle:
@@ -31,10 +31,10 @@ func _physics_process(delta):
 			rotation = velocity.angle()
 			move_and_collide(reflect)
 		else:
-			_on_hit(body)
+			_on_hit(body, collision)
 
-func _on_hit(body):
+func _on_hit(body, collision):
 	if body.is_in_group("Enemy") or body.is_in_group("Player"):
 		print("Dealt " + String(damage) + " damage")
-		body.damage(damage, "pierce")
+		body.damage(damage, "pierce", collision, velocity.normalized())
 	queue_free()

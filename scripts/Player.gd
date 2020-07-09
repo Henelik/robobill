@@ -67,5 +67,5 @@ func _physics_process(delta):
 	mouse_pos = get_local_mouse_position()
 	body.rotation = mouse_pos.angle()
 
-func damage(amount, type):
+func damage(amount, type, collision, direction):
 	pass

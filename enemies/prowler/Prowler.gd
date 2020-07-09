@@ -23,6 +23,9 @@ onready var nav : Navigation2D = get_parent().get_node("Level/Navigation2D")
 var velocity : Vector2 = Vector2(0, 0)
 var acceleration : float = .2
 
+export (String) var blood_splat_path
+onready var blood_splat_prefab = load(blood_splat_path)
+
 func _ready():
 	player = get_tree().get_nodes_in_group("Player")[0]
 
@@ -34,7 +37,6 @@ func _process(delta):
 			if path_age > path_update_period:
 				path_to_player = nav.get_simple_path(position, player.position, false)
 				path_age = 0
-				print_debug("Updating path!")
 			if path_to_player.size() > 1:
 				var d: float = position.distance_to(path_to_player[0])
 				if d > 10:
@@ -59,7 +61,15 @@ func _physics_process(delta):
 	velocity = move_and_slide(velocity)
 	look_at(position+velocity)
 
-func damage(amount, type):
+func damage(amount, type, collision, direction): # collision may be null!
+	if type == "pierce": # spawn a blood splat
+		var splat = blood_splat_prefab.instance()
+		get_tree().get_root().add_child(splat)
+		if collision != null:
+			splat.position = collision.position
+			splat.rotation = direction.angle()
+	
+	# figure out if we should die
 	if amount >= hp:
 		die(amount-hp, type)
 		return
