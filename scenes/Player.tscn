@@ -127,7 +127,7 @@ texture = ExtResource( 6 )
 normal_map = ExtResource( 7 )
 vframes = 5
 hframes = 8
-frame = 5
+frame = 1
 
 [node name="LegsPlayer" type="AnimationPlayer" parent="Legs"]
 anims/Idle = SubResource( 3 )
