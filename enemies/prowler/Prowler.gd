@@ -31,6 +31,8 @@ func _ready():
 
 func _process(delta):
 	if alerted:
+		if state == 0: # idle
+			$Body/AnimationPlayer.play("Idle")
 		if state == 1: # walk towards player
 			$Body/AnimationPlayer.play("Walk")
 			path_age += delta

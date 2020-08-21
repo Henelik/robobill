@@ -109,19 +109,19 @@ position = Vector2( -14.2997, -25.0244 )
 
 [node name="SpinupPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 7 )
-volume_db = -20.0
+volume_db = -30.0
 
 [node name="GunshotPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 8 )
-volume_db = -10.0
+volume_db = -15.0
 pitch_scale = 1.4
 
 [node name="LatchPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 9 )
-volume_db = -20.0
+volume_db = -30.0
 
 [node name="HeatParticles" type="Particles2D" parent="."]
-modulate = Color( 0.65098, 0.65098, 0.65098, 0.529412 )
+modulate = Color( 0.65098, 0.65098, 0.65098, 0.823529 )
 material = ExtResource( 4 )
 position = Vector2( -14.3036, -25.0649 )
 amount = 4
